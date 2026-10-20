@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dexcol - Videos</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080d18;color:white;font-family:Arial,sans-serif}
+header{padding:18px;background:#111a2b;display:flex;justify-content:space-between}
+.logo{font-size:28px;font-weight:bold;color:#31b8ff}
+.hero{text-align:center;padding:38px 12px;background:linear-gradient(135deg,#152f58,#301d55)}
+h1{font-size:42px;margin:10px}
+p{color:#c0cce0;line-height:1.5}
+main{padding:18px;max-width:900px;margin:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px}
+.card{background:#141f32;border-radius:12px;overflow:hidden}
+.card iframe{width:100%;aspect-ratio:16/9;border:0}
+.thumb{aspect-ratio:16/9;display:grid;place-items:center;background:#263b60;font-size:40px}
+.card h3{padding:0 12px;font-size:15px}
+button{background:#168cff;color:white;border:0;padding:12px 18px;border-radius:8px;font-size:16px}
+footer{text-align:center;padding:25px;color:#aab8cc}
+</style>
+</head>
+<body>
+<header><div class="logo">dexcol</div><div>VIDEOS</div></header>
+<section class="hero">
+<p>WELCOME TO</p>
+<h1>Dexcol</h1>
+<p>Videos • Creativity • Your World</p>
+<p>Watch my latest videos here!</p>
+</section>
+<main>
+<h2>🎬 Latest Videos</h2>
+<p>New videos coming soon!</p>
+<div class="grid" id="gallery"></div>
+</main>
+<footer>© Dexcol</footer>
+<script>
+/* YouTube video ID yahan add karein */
+const videos=[
+{title:"My First Video",id:""},
+{title:"My New Video",id:""}
+];
+const gallery=document.getElementById("gallery");
+videos.forEach(v=>{
+const card=document.createElement("div");
+card.className="card";
+if(v.id){
+const f=document.createElement("iframe");
+f.src="https://www.youtube-nocookie.com/embed/"+encodeURIComponent(v.id);
+f.title=v.title;
+f.allowFullscreen=true;
+card.appendChild(f);
+}else{
+const t=document.createElement("div");
+t.className="thumb";
+t.textContent="▶";
+card.appendChild(t);
+}
+const h=document.createElement("h3");
+h.textContent=v.title;
+card.appendChild(h);
+gallery.appendChild(card);
+});
+</script>
+</body>
+  </html>
+  
